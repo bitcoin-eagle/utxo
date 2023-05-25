@@ -8,3 +8,11 @@ pub enum ChainStateEvent {
     /// Spendable: UTXO spend has been reorged out of current best chain after it had been previously confirmed spent
     UtxoUnspent {},
 }
+
+pub struct UtxoEntity {}
+
+pub struct ChainStateAggregate {}
+
+impl ChainStateAggregate {
+    pub fn apply(event: ChainStateEvent) {}
+}
