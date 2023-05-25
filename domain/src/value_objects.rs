@@ -8,3 +8,9 @@ impl From<OutPoint> for UtxoId {
         Self(value)
     }
 }
+
+impl UtxoId {
+    pub fn new(outpoint: OutPoint) -> Self {
+        Self(outpoint)
+    }
+}
