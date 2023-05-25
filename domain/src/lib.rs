@@ -1,3 +1,8 @@
+use es::add as es_add;
+
+pub mod aggregates;
+pub mod events;
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }

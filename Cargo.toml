@@ -1,16 +1,9 @@
-[package]
-name = "utxo"
-version = "0.1.0"
-edition = "2021"
-
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies]
-es = { path = "es" }
-domain = { path = "domain" }
-
 [workspace]
-
+default-members = [ "api" ]
 members = [
+    "api",
+    "domain",
     "es",
 ]
