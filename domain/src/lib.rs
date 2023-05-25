@@ -1,3 +1,7 @@
+use value_objects::*;
+
+pub mod value_objects;
+
 pub enum ChainStateEvent {
     /// Spendable: UTXO has been confirmed in a block in a best chain
     UtxoConfirmed {},
@@ -9,7 +13,18 @@ pub enum ChainStateEvent {
     UtxoUnspent {},
 }
 
-pub struct UtxoEntity {}
+pub struct UtxoEntity {
+    id: UtxoId,
+}
+
+impl UtxoEntity {
+    fn new() -> Self {
+        todo!();
+        Self {
+            id: bitcoin::OutPoint::null().into(),
+        }
+    }
+}
 
 pub struct ChainStateAggregate {}
 
