@@ -3,17 +3,27 @@
 version = 3
 
 [[package]]
+name = "application"
+version = "0.1.0"
+dependencies = [
+ "domain",
+]
+
+[[package]]
 name = "domain"
 version = "0.1.0"
 
 [[package]]
-name = "es"
-version = "0.1.0"
-
-[[package]]
-name = "utxo"
+name = "infrastructure"
 version = "0.1.0"
 dependencies = [
- "domain",
- "es",
+ "application",
+]
+
+[[package]]
+name = "web-api"
+version = "0.1.0"
+dependencies = [
+ "application",
+ "infrastructure",
 ]
