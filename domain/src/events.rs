@@ -1,6 +1,11 @@
 use crate::value_objects::*;
 
+#[derive(Debug)]
 pub enum ChainStateEvent {
+    ChainInitialized {
+        genesis_block_hash: BlockHash,
+        network: Network,
+    },
     /// Spendable: UTXO has been confirmed in a block in a best chain
     UtxoConfirmed {
         utxo_id: UtxoId,

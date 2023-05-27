@@ -13,6 +13,11 @@ mod aggregates_tests {
     #[test]
     fn new() {
         let mut a = ChainStateAggregate::default();
-        a.apply(ChainStateEvent::UtxoConfirmed { utxo_id: todo!(), value: todo!(), confirmed_block_height: todo!(), confirmed_block_hash: todo!() });
+        a.apply(&ChainStateEvent::UtxoConfirmed {
+            utxo_id: todo!(),
+            value: todo!(),
+            confirmed_block_height: todo!(),
+            confirmed_block_hash: todo!(),
+        });
     }
 }

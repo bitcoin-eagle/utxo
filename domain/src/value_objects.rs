@@ -4,11 +4,18 @@ use bitcoin::{
 };
 
 #[readonly::make]
-pub struct UtxoId(OutPoint);
+#[derive(Copy, Clone, Debug, Eq, Hash, PartialEq, PartialOrd, Ord)]
+pub struct UtxoId(pub OutPoint);
+
 #[readonly::make]
-pub struct Txid(bitcoin::Txid);
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct Txid(pub bitcoin::Txid);
+
 #[readonly::make]
-pub struct BlockHash(bitcoin::BlockHash);
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct BlockHash(pub bitcoin::BlockHash);
+
+pub type Network = bitcoin::Network;
 
 impl UtxoId {
     pub fn new(value: OutPoint) -> Self {
@@ -19,12 +26,6 @@ impl UtxoId {
 impl From<OutPoint> for UtxoId {
     fn from(value: OutPoint) -> Self {
         Self(value)
-    }
-}
-
-impl Default for UtxoId {
-    fn default() -> Self {
-        Self(Default::default())
     }
 }
 
@@ -45,5 +46,11 @@ impl Default for Txid {
 impl BlockHash {
     pub fn new(value: bitcoin::BlockHash) -> Self {
         Self(value)
+    }
+}
+
+impl Default for BlockHash {
+    fn default() -> Self {
+        Self(bitcoin::BlockHash::all_zeros())
     }
 }
